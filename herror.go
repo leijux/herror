@@ -6,5 +6,8 @@ import (
 )
 
 func init() {
-	log.Logger = log.Output(zerolog.NewConsoleWriter())
+	log.Logger = log.Output(zerolog.NewConsoleWriter()).
+		With().
+		CallerWithSkipFrameCount(3).
+		Logger()
 }
