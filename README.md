@@ -28,7 +28,8 @@ if err != nil {
 HandleErr(Func()).Must()
 
 HandleErr(Func()).Msg("err msg").Must()
-	//忽略err
+
+//忽略err
 HandleErr(Func()).Ignore()
 ```
 当函数拥有两个返回值时，通常第二个参数是err，根据这个特性herror将在内部处理err并返回结果。
