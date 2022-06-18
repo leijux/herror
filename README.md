@@ -18,27 +18,27 @@ func main() {
 ## 示例
 对于返回的err我们通常使用如下方法处理
 ```go
-	err := Func()
-	if err != nil {
-		log.Fatalln(err)
-	}
+err := Func()
+if err != nil {
+	log.Fatalln(err)
+}
 ```
 使用herror处理err
 ```go
-	HandleErr(Func()).Must()
+HandleErr(Func()).Must()
 
-	HandleErr(Func()).Msg("err msg").Must()
+HandleErr(Func()).Msg("err msg").Must()
 	//忽略err
-	HandleErr(Func()).Ignore()
+HandleErr(Func()).Ignore()
 ```
 当函数拥有两个返回值时，通常第二个参数是err，根据这个特性herror将在内部处理err并返回结果。
 ```go
-	result := ResultErr(Func()).Must()
+result := ResultErr(Func()).Must()
 
-	result := ResultErr(Func()).Msg("err msg").Must()
+result := ResultErr(Func()).Msg("err msg").Must()
 ```
 如果拥有三个参数可以使用ResultsErr函数
 ```go
-	result1, result2 := ResultsErr(Func()).Must()
+result1, result2 := ResultsErr(Func()).Must()
 ```
 ## TODO
