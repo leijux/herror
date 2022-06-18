@@ -1,4 +1,4 @@
-# herror 是一个快速、简单处理错误的包
+# herror 是一个简单处理错误的包
 ## 介绍
 go语言的错误处理的方式一直让人吐槽，每写一行代码就要 if err != nil 一下,非常的痛苦。本包就是为了解决这个痛点，在一些不太需要关注错误的地方你可以使用它，比如快速的去编写脚本。
 ## 快速开始
@@ -37,9 +37,13 @@ HandleErr(Func()).Ignore()
 result := ResultErr(Func()).Must()
 
 result := ResultErr(Func()).Msg("err msg").Must()
+
+result := ResultErr(Func()).Ignore()
 ```
 如果拥有三个参数可以使用ResultsErr函数
 ```go
 result1, result2 := ResultsErr(Func()).Must()
+
+result1, result2 := ResultsErr(Func()).Ignore()
 ```
 ## TODO
