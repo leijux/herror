@@ -8,11 +8,11 @@ package main
 import "github.com/leijux/herror"
 
 func F() error {
-	return errors.New("err")
+    return errors.New("err")
 }
 
 func main() {
-	herror.HandleErr(F()).Must()
+    herror.HandleErr(F()).Must()
 }
 ```
 ## 示例
@@ -20,7 +20,7 @@ func main() {
 ```go
 err := Func()
 if err != nil {
-	log.Fatalln(err)
+    log.Fatalln(err)
 }
 ```
 使用herror处理err
