@@ -47,3 +47,4 @@ result1, result2 := ResultsErr(Func()).Must()
 result1, result2 := ResultsErr(Func()).Ignore()
 ```
 ## TODO
+- 增加自定义的err处理方法
