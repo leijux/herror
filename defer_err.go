@@ -8,7 +8,7 @@ type DeferFuncErr struct {
 
 func (m DeferFuncErr) Must() {
 	if err := m.f(); err != nil {
-		log.Fatal().Str("Must", "DeferErr err").Err(err).Send()
+		log.Panic().Str("Must", "DeferErr err").Err(err).Send()
 	}
 }
 

@@ -22,7 +22,7 @@ func (m ErrResults[T1, T2]) Msg(msg string) ErrResults[T1, T2] {
 func (m ErrResults[T1, T2]) Must() (T1, T2) {
 	var event *zerolog.Event
 	if m.err != nil {
-		event = log.Fatal().Err(m.err).Str("Must", "ResultsErr err")
+		event = log.Panic().Err(m.err).Str("Must", "ResultsErr err")
 	}
 	if m.msg != "" {
 		event.Msg(m.msg)

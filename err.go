@@ -20,7 +20,7 @@ func (m Err) Msg(msg string) Err {
 func (m Err) Must() {
 	var event *zerolog.Event
 	if m.err != nil {
-		event = log.Fatal().Err(m.err).Str("Must", "HandleErr err")
+		event = log.Panic().Err(m.err).Str("Must", "HandleErr err")
 	}
 	if m.msg != "" {
 		event.Msg(m.msg)
