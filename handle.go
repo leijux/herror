@@ -7,6 +7,11 @@ func ResultErr[T any](result T, err error) ErrResult[T] {
 	}
 }
 
+//Try ResultErr的别名
+func Try[T any](result T, err error) ErrResult[T] {
+	return ResultErr(result, err)
+}
+
 func ResultsErr[T1, T2 any](result1 T1, result2 T2, err error) ErrResults[T1, T2] {
 	return ErrResults[T1, T2]{
 		err:     err,
