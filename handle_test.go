@@ -213,5 +213,4 @@ func TestResultsErr(t *testing.T) {
 			assert.Equal(t, json.Get("message").String(), "ignore err")
 		})
 	}
-
 }
