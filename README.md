@@ -7,12 +7,12 @@ package main
 
 import "github.com/leijux/herror"
 
-func F() error {
-    return errors.New("err")
+func F() ( int , error ) {
+    return 1,errors.New("err")
 }
 
 func main() {
-    herror.HandleErr(F()).Must()
+    herror.Try(F()).Must()
 }
 ```
 ## 示例
