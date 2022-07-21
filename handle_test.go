@@ -20,7 +20,7 @@ var (
 func TestMain(m *testing.M) {
 	outBytes := make([]byte, 0, 1024)
 	outBuffer = bytes.NewBuffer(outBytes)
-	log.Logger = log.Output(outBuffer)
+	zlog = log.Output(outBuffer)
 	os.Exit(m.Run())
 }
 

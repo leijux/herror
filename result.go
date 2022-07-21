@@ -2,7 +2,6 @@ package herror
 
 import (
 	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
 )
 
 type ErrResult[T any] struct {
@@ -21,7 +20,7 @@ func (m ErrResult[T]) Msg(msg string) ErrResult[T] {
 func (m ErrResult[T]) Must() (result T) {
 	var event *zerolog.Event
 	if m.err != nil {
-		event = log.Panic().Err(m.err).Str("Must", "ResultErr err")
+		event = zlog.Panic().Err(m.err).Str("Must", "ResultErr err")
 	}
 	if m.msg != "" {
 		event.Msg(m.msg)
@@ -34,7 +33,7 @@ func (m ErrResult[T]) Must() (result T) {
 func (m ErrResult[T]) Ignore() (result T) {
 	var event *zerolog.Event
 	if m.err != nil {
-		event = log.Debug().Err(m.err).Str("Ignore", "ResultErr err")
+		event = zlog.Debug().Err(m.err).Str("Ignore", "ResultErr err")
 	}
 	if m.msg != "" {
 		event.Msg(m.msg)

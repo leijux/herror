@@ -2,7 +2,6 @@ package herror
 
 import (
 	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
 )
 
 type Err struct {
@@ -20,7 +19,7 @@ func (m Err) Msg(msg string) Err {
 func (m Err) Must() {
 	var event *zerolog.Event
 	if m.err != nil {
-		event = log.Panic().Err(m.err).Str("Must", "HandleErr err")
+		event = zlog.Panic().Err(m.err).Str("Must", "HandleErr err")
 	}
 	if m.msg != "" {
 		event.Msg(m.msg)
@@ -32,7 +31,7 @@ func (m Err) Must() {
 func (m Err) Ignore() {
 	var event *zerolog.Event
 	if m.err != nil {
-		event = log.Debug().Err(m.err).Str("Ignore", "HandleErr err")
+		event = zlog.Debug().Err(m.err).Str("Ignore", "HandleErr err")
 	}
 	if m.msg != "" {
 		event.Msg(m.msg)

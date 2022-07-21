@@ -5,8 +5,10 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
+var zlog zerolog.Logger
+
 func init() {
-	log.Logger = log.Output(zerolog.NewConsoleWriter()).
+	zlog = log.Output(zerolog.NewConsoleWriter()).
 		With().
 		CallerWithSkipFrameCount(3).
 		Logger()
